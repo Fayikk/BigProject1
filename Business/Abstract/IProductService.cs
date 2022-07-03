@@ -8,7 +8,12 @@ using System.Threading.Tasks;
 namespace Business.Abstract
 {
     public interface IProductService
-    {
+    {  //mETODLARI VERİTABANINA otomatik işlem yapmasını sağlayacak şekilde bağladığımıza göre
+        //artık istediğim metdoları şekillendirebilirim.
         List<Product> GetAll();
+        //kategori ıd'sine göre getiren operasyonu yazıyoruz.
+        List<Product> GetAllByCategoryId(int id);
+        List<Product> GetByUnitPrice(decimal min,decimal max);
+
     }
 }

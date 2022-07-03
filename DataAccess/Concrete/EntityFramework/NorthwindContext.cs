@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Entities.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,9 +18,11 @@ namespace DataAccess.Concrete.EntityFramework
             //sql servera nasıl bağlanacağımı belirtmem yeterlidir.
             //connection string giriyoruz.
             //string ifadeler içerisine sql serverımızın nerede olduğunu söyleyelim.
-           
+            optionsBuilder.UseSqlServer(@"Server=(localDb)\MSSQLLocalDb;Database=Northwind;Trusted_Connection=true");
            
         }
-        public int MyProperty { get; set; }
+        public DbSet<Product> Products  { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Customer> Customers { get; set; }
     }
 }
