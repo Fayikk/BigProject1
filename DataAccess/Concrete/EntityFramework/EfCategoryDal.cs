@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace DataAccess.Concrete.EntityFramework
-{
+{//Ef=Entity Framework
     public class EfCategoryDal : ICategoryDal
     {
         public void Add(Category entity)
