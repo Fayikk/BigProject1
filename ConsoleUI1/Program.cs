@@ -10,7 +10,7 @@ namespace ConsoleUI1
         static void Main(string[] args)
         {
             //Data Transformation Object(DTO)
-            ProductTest();
+            //ProductTest();
             //CategoryTest();
 
         }

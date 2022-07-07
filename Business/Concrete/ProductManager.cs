@@ -1,4 +1,5 @@
 ﻿using Business.Abstract;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
@@ -36,6 +37,26 @@ namespace Business.Concrete
         public List<ProductDetailDto> GetProductDetails()
         {
             return _productDal.GetProductDetails();
+        }
+
+        public IResult Add(Product product)
+        {
+            //business codes buaraya yazılır.
+            if (product.ProductName.Length < 2)
+            {                         //Antipattern kodlarımızda string ifadelirin içerisinde profesyonel stringler yazmalıyız.
+                return new ErrorResult("Ürün ismi en az 2 karakter olmalıdır.")
+
+            }
+            _productDal.Add(product);
+            //artık void olamdığı için döndürmemiz gerekecektir dolayısıyla return ile Resul() döndürmesi yapmış olduk.
+            
+
+            return new SuccessResult("Ürün eklendi");
+        }
+
+        public Product GetById(int productId)
+        {
+            return _productDal.Get(p=>p.ProductId == productId);
         }
 
         public ProductManager(IProductDal productDal)
