@@ -12,12 +12,12 @@ namespace Business.Abstract
     public interface IProductService
     {  //mETODLARI VERİTABANINA otomatik işlem yapmasını sağlayacak şekilde bağladığımıza göre
         //artık istediğim metdoları şekillendirebilirim.
-        List<Product> GetAll();
+        IDataResult<List<Product>> GetAll();
         //kategori ıd'sine göre getiren operasyonu yazıyoruz.
-        List<Product> GetAllByCategoryId(int id);
-        List<Product> GetByUnitPrice(decimal min,decimal max);
-        List<ProductDetailDto> GetProductDetails();
-        Product GetById(int productId);
+        IDataResult <List<Product>> GetAllByCategoryId(int id);
+        IDataResult <List<Product>> GetByUnitPrice(decimal min,decimal max);
+        IDataResult <List<ProductDetailDto>> GetProductDetails();
+        IDataResult<Product> GetById(int productId);
         IResult Add(Product product);
     }
 }
